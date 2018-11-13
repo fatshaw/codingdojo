@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
-public class PotterOptimized implements KataPotter {
+public class OptimizedKataPotter implements KataPotter {
 
     public int[] getSortedGroupMap(List<Integer> books) {
         return Arrays.copyOf(books.stream()
