@@ -1,0 +1,20 @@
+group 'com.fatshaw.codingdojo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    annotationProcessor 'org.projectlombok:lombok:1.16.20'
+
+    testCompile(
+            "junit:junit:4.12"
+    )
+}

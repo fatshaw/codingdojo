@@ -1,0 +1,16 @@
+.idea/
+.gradle/
+build/
+*.ipr
+*.iws
+*.iml
+
+
+## add by zhangbaisong 2017年08月14日10:34:36
+logs
+**/.DS_Store
+**/.classpath
+**/.project
+.vscode/
+**/.settings/
+**/bin
