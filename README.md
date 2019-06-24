@@ -17,3 +17,7 @@ http://codingdojo.org/kata/Potter/
     - calculate price according to the discount rule
     - adjust edge case: replace every pair of 5 distinct books and 3 distinct books with a 2 groups of 4 distinct books
     - much faster than above method because reduce loop times.
+    
+### fizzbuzz
+http://codingdojo.org/kata/FizzBuzz/
+- Good to introduce the concepts of TDD and BabySteps to a new CodingDojo 
