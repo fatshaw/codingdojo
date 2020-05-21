@@ -37,10 +37,30 @@ public class SimpleKataPotter implements KataPotter {
 
     public int getPrice(List<Integer> books) {
 
-        Map<Integer, Integer> groupedBooks = groupMap(books.stream()
-            .collect(Collectors.toMap(s -> s, s -> 1, (s, j) -> (s + j))));
-        int min = Math.min(groupedBooks.getOrDefault(3, 0), groupedBooks.getOrDefault(5, 0));
-        return groupedBooks.entrySet().stream()
+        /** book number --> count
+            1 -> 1
+            2 -> 3
+            3 -> 1
+         */
+        Map<Integer, Integer> booksGroupByBookNumber = books.stream().collect(Collectors.toMap(s -> s, s -> 1, (s, j) -> (s + j)));
+
+        /**
+         * different books --> count
+         * 1 --> 1
+         * 2 --> 1
+         */
+        Map<Integer, Integer> countByDifferentBook = groupMap(booksGroupByBookNumber);
+
+        /**
+         * edge case: multiple groups of 5 different books and 3 different books
+         * we can use strategy of 4 + 4 instead of 5 + 3
+         */
+        int min = Math.min(countByDifferentBook.getOrDefault(3, 0), countByDifferentBook.getOrDefault(5, 0));
+
+        /**
+         * calculate the price
+         */
+        return countByDifferentBook.entrySet().stream()
             .map(kv -> DISCOUNTS.get(kv.getKey()) * kv.getValue())
             .reduce(min * -40, (s, i) -> s + i);
     }
