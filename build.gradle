@@ -1,9 +1,24 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72"
+    }
+}
+
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.3.72"
+}
+
+sourceCompatibility = 11
+
 group 'com.fatshaw.codingdojo'
+
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
-sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -11,10 +26,13 @@ repositories {
 
 
 dependencies {
-    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
-    annotationProcessor 'org.projectlombok:lombok:1.16.20'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.3.72"
     testCompile(
-            "junit:junit:4.12"
+            "junit:junit:4.12",
+            "org.junit.jupiter:junit-jupiter:5.5.0",
+            "org.assertj:assertj-core:3.11.1"
     )
 }
