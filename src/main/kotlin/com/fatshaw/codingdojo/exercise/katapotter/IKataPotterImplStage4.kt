@@ -1,6 +1,7 @@
 package com.fatshaw.codingdojo.exercise.katapotter
 
 import com.fatshaw.codingdojo.exercise.katapotter.domain.Book
+import com.fatshaw.codingdojo.exercise.katapotter.factory.BookSetFactory
 
 class IKataPotterImplStage4 : IKataPotter {
 
@@ -9,6 +10,6 @@ class IKataPotterImplStage4 : IKataPotter {
     }
 
     private fun newBookSets(list: List<Book>) =
-        BookSetFactory().newBookSets(list)
+        BookSetFactory().newBookSet(list)
 
 }

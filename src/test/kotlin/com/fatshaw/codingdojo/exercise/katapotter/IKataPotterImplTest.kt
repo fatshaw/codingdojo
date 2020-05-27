@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 class IKtataPotterImplTest {
 
-    private val kataPotter: IKataPotter = IKataPotterImplStage3()
+    private val kataPotter: IKataPotter = IKataPotterImplStage5()
 
     @Nested
     inner class SimpleTest {

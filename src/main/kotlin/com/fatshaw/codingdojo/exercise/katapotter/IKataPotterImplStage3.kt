@@ -1,7 +1,7 @@
 package com.fatshaw.codingdojo.exercise.katapotter
 
 import com.fatshaw.codingdojo.exercise.katapotter.domain.Book
-import com.fatshaw.codingdojo.exercise.katapotter.domain.BookDiscountSet
+import com.fatshaw.codingdojo.exercise.katapotter.domain.BookSet
 import com.fatshaw.codingdojo.exercise.katapotter.domain.BookType
 
 class IKataPotterImplStage3 : IKataPotter {
@@ -10,13 +10,13 @@ class IKataPotterImplStage3 : IKataPotter {
         return newBookSets(list).map { it.calculate() }.sum()
     }
 
-    private fun newBookSets(list: List<Book>): MutableList<BookDiscountSet> {
+    private fun newBookSets(list: List<Book>): MutableList<BookSet> {
         val bookCount = calculateEachBookCount(list)
 
-        val bookSets = mutableListOf<BookDiscountSet>()
+        val bookSets = mutableListOf<BookSet>()
         while (hasBooks(bookCount)) {
             val differentBookCount = calculateNextBookSet(bookCount)
-            bookSets.add(BookDiscountSet(differentBookCount))
+            bookSets.add(BookSet(differentBookCount))
         }
 
         return bookSets

@@ -1,7 +1,7 @@
 package com.fatshaw.codingdojo.exercise.katapotter
 
 import com.fatshaw.codingdojo.exercise.katapotter.domain.Book
-import com.fatshaw.codingdojo.exercise.katapotter.domain.BookDiscountSet
+import com.fatshaw.codingdojo.exercise.katapotter.domain.BookSet
 import com.fatshaw.codingdojo.exercise.katapotter.domain.BookType
 
 class IKataPotterImplStage2 : IKataPotter {
@@ -9,16 +9,14 @@ class IKataPotterImplStage2 : IKataPotter {
         return newBookSets(list).map { it.calculate() }.sum()
     }
 
-    private fun newBookSets(list: List<Book>): MutableList<BookDiscountSet> {
+    private fun newBookSets(list: List<Book>): MutableList<BookSet> {
         var firstBookCount = list.filter { it.type == BookType.FIRST }.count()
         var secondBookCount = list.filter { it.type == BookType.SECOND }.count()
         var thirdBookCount = list.filter { it.type == BookType.THIRD }.count()
         var fourthBookCount = list.filter { it.type == BookType.FOURTH }.count()
         var fifthBookCount = list.filter { it.type == BookType.FIFTH }.count()
 
-        var price = 0
-
-        val bookSets = mutableListOf<BookDiscountSet>()
+        val bookSets = mutableListOf<BookSet>()
         while (hasBooks(firstBookCount, secondBookCount, thirdBookCount, fourthBookCount, fifthBookCount)) {
             var count = 0
 
@@ -47,7 +45,7 @@ class IKataPotterImplStage2 : IKataPotter {
                 fifthBookCount--
             }
 
-            bookSets.add(BookDiscountSet(count))
+            bookSets.add(BookSet(count))
         }
         return bookSets
     }

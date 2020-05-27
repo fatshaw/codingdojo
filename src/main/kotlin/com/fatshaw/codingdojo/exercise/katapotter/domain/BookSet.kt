@@ -1,6 +1,6 @@
 package com.fatshaw.codingdojo.exercise.katapotter.domain
 
-class BookDiscountSet(val differentBookCount: Int) {
+data class BookSet(val differentBookCount: Int) {
 
     companion object {
         private const val PRICE_FOR_ONE_BOOK = 800
